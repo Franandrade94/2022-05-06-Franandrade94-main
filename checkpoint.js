@@ -63,17 +63,18 @@ function joinLinkedList(linkedListOne, linkedListTwo) {
   // Tu código aca:
   
   var newLinkedList = new LinkedList()
-  while (linkedListTwo.head || linkedListOne.head) {
+  var l1_current = linkedListOne.head
+  var l2_current = linkedListTwo.head
+  while (l1_current || l2_current) {
 
-    if (linkedListOne.head) {
-      newLinkedList.add(linkedListOne.head.value)
-      linkedListOne.head = linkedListOne.head.next
+    if (l1_current) {
+      newLinkedList.add(l1_current.value)
+      l1_current = l1_current.next
     }
 
-    if (linkedListTwo.head) {
-      newLinkedList.add(linkedListTwo.head.value)
-      linkedListTwo.head = linkedListTwo.head.next
-
+    if (l2_current) {
+      newLinkedList.add(l2_current.value)
+      l2_current = l2_current.next
     }
   }
   return newLinkedList
@@ -132,23 +133,12 @@ BinarySearchTree.prototype.searchMin = function () {
 function createBST(array) {
   // Tu código aca:
   
-    this.tree.value = array [0];
-  
-
-
-    if (array[i] < this.tree.value){
-      
-      this.left = array [i];
-
-      
-    }
-
-    else {
-      this.right = array [i];
-
-      
-    }
-  
+    
+  var tree = new BinarySearchTree()
+  for (var v in array) {
+    tree.insert(v)
+  }
+  return tree
 }
 
 
@@ -160,6 +150,7 @@ function createBST(array) {
 // La función passport retorna una función isAllowed, la cual recibirá un arreglo de personas que quieren ingresar al país, y retornará un nuevo arreglo con los admitidos (aquellos que cumplan con la edad requerida).
 function passport(minAge, country) {
   // Tu código aca:
+  
 }
 
 // ---- Recursión ----
