@@ -150,7 +150,23 @@ function createBST(array) {
 // La función passport retorna una función isAllowed, la cual recibirá un arreglo de personas que quieren ingresar al país, y retornará un nuevo arreglo con los admitidos (aquellos que cumplan con la edad requerida).
 function passport(minAge, country) {
   // Tu código aca:
-  
+  var _minAge = minAge
+  var _country = country
+  var isAllowed = function (arr) {
+    var _arr = []
+    for (v in arr) {
+      if (v.age >= _minAge && v.allowed == _country) {
+        _arr.push(v)
+      }
+    }
+    if (_arr.length == 0)
+      return false
+
+    return _arr
+  }
+  return isAllowed
+
+
 }
 
 // ---- Recursión ----
@@ -261,6 +277,18 @@ function cardGame(playerOneCards, playerTwoCards) {
 // ]
 function specialSort(array, swapFunction) {
   // Tu código aca:
+  var len = array.length;
+  for (var i = 0; i < len; i++) {
+    for (var j = 0; j < len - i - 1; j++) {
+      if (swapFunction(array[j],array[j + 1]) == -1) {
+        var temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }
+    }
+  }
+
+return array;
 }
 
 module.exports = {
